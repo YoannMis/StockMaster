@@ -17,7 +17,7 @@ Dans le cadre de ce projet, vous serez amenés à réaliser une application web 
 + Mettre l'accent sur la sécurité et les bonnes pratiques Web (système d'authentification, permissions, CSRF, etc),
 + Introduire les fondements DevOps : tests d'intégration dans un pipeline GitHub Actions.
 
-Voici une traduction anglaise du descriptif de projet pour un README :
+__________________________________________________________
 
 ## Project Description
 
