@@ -1,0 +1,1 @@
+/Users/janus/Documents/Code/PyCharmProjects/StockMaster/.venv/bin/python /Users/janus/Documents/Code/PyCharmProjects/StockMaster/src/manage.py runserver
