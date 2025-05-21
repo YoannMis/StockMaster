@@ -1,12 +1,10 @@
-from itertools import product
-
 from django.db import models
 
 
 # Product model
 class Product(models.Model):
     # Enum type choices for the different types of products available
-    class Types(models.Choices):
+    class Types(models.TextChoices):
         CONSUMABLE = "Consumable"
         GLASS = "Glass"
         CHEMICAL = "Chemical"
@@ -117,7 +115,7 @@ class Stock(models.Model):
 # Stock movement model
 class StockMovement(models.Model):
     # Movement type: if the product go in or go out
-    movement_type = models.CharField(max_length=10, choices=[('IN', 'In'), ('OUT', 'Out')])
+    movement_type = models.CharField(max_length=10, choices=[('IN', 'In'), ('OUT', 'Out')]) # Pourquoi pas un TextChoices ?
     # The quantity of product that is moved
     quantity = models.IntegerField(default=1, verbose_name="quantity")
     # The timestamp when the stock movement is recorded
