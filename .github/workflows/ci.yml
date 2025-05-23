@@ -35,7 +35,7 @@ jobs:
 
       - name: Run migrations
         run: |
-          python manage.py migrate
+          python src/manage.py migrate
 
       - name: Run tests
         run: |
