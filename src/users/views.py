@@ -2,16 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
 
-# def get_logged_user_id(request):
-#     logged_user = get_user(request)
-#     print(f"user = {logged_user}")
-#     if logged_user.is_authenticated:
-#         logged_user_id = logged_user.id
-#
-#     return logged_user_id
-
-
-@login_required
+@login_required(redirect_field_name=None)
 def welcome_view(request):
     """
     Render the welcome page for authenticated users.
@@ -22,8 +13,4 @@ def welcome_view(request):
     Returns:
         HttpResponse: A rendered welcome page for authenticated users.
     """
-    # user = request.user
-    # name = user.first_name
-    # Dans le template on peut directement utiliser {{ user }} sans avoir besoin de le passer dans le context
-    return render(request, "users/index.html")
-
+    return render(request, template_name="users/index.html")
