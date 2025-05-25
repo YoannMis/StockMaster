@@ -23,13 +23,8 @@ def test_welcome_view_with_authenticated_user(client: Client, valid_user: User):
         - The response status code is 200 (OK).
         - The response content contains the welcome message for the authenticated user.
     """
-    # Create a valid user
-    user = valid_user
-
-    # Simulate a logged-in user by setting the session
-    session = client.session
-    session['logged_user_id'] = user.id
-    session.save()
+    # Login the user
+    client.force_login(valid_user)
 
     # Access the welcome view
     response = client.get(reverse("welcome-page"))
@@ -59,4 +54,4 @@ def test_welcome_view_with_unauthenticated_user(client: Client):
     response = client.get(reverse("welcome-page"))
     # Verify that the user is redirected to the login page
     assert response.status_code == 302
-    assert response.url == reverse("login-page")
+    assert response.url == reverse("users:login-page")
