@@ -1,4 +1,4 @@
-name: CI
+name: Django CI
 
 on:
   push:
@@ -7,13 +7,12 @@ on:
     branches: [ "main" ]
 
 jobs:
-  test:
+  build:
   
     runs-on: ubuntu-latest
 
     env:
       SECRET_KEY: ${{ secrets.SECRET_KEY }}
-      defaults.run.working-directory: /home/runner/work/StockMaster/src
 
     strategy:
       max-parallel: 4
@@ -35,9 +34,11 @@ jobs:
           pip install -r requirement.txt
 
       - name: Run migrations
+        working-directory: ./src
         run: |
-          python src/manage.py migrate
+          python manage.py migrate
 
       - name: Run tests
+        working-directory: ./src
         run: |
           pytest
