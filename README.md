@@ -30,4 +30,4 @@ In this project, you will develop a comprehensive web application for inventory 
 + Deepen mastery of Django: models, generic views, templates, signals, and authentication system,
 + Design a modular and scalable architecture: separation by applications (catalog, warehouse, reporting, users),
 + Emphasize security and web best practices (authentication system, permissions, CSRF, etc.),
-+ Introduce DevOps fundamentals: integration tests in a GitHub Actions pipeline. #
++ Introduce DevOps fundamentals: integration tests in a GitHub Actions pipeline. ##
