@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      SECRET_KEY: ${{ secrets.SECRET_KEY }}
+      SECRET_KEY: 'django-insecure-test-key-for-ci-only-not-for-production'
 
     strategy:
       max-parallel: 4
