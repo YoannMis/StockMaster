@@ -46,10 +46,12 @@ class Warehouse(models.Model):
         KANBAN = "Kanban"
 
     # Warehouse name
-    name = models.CharField(max_length=50, verbose_name="name")
-    # Warehouse location
-    location = models.CharField(max_length=50, verbose_name="location")
-    # The type of product among the choices available in the enum type "Types"
+    name = models.CharField(max_length=50, default="*", verbose_name="name")
+    # Warehouse's building location
+    building = models.CharField(max_length=10, default="A1", verbose_name="building")
+    # Warehouse's room location in the building
+    room = models.CharField(max_length=10, default="*", verbose_name="room")
+    # The type of warehouse among the choices available in the enum type "Types"
     warehouse_type = models.CharField(choices=Types, default=Types.STORE, verbose_name="type")
     # Link to the Product model: all the products present in the warehouse
     # products = models.ManyToManyField(Product,
@@ -58,8 +60,13 @@ class Warehouse(models.Model):
     #                                   related_name="products",
     #                                   verbose_name="products in the store")
 
+    def save(self, *args, **kwargs):
+        # Combine building and room to create the name
+        self.name = f"{self.warehouse_type} ({self.building}_{self.room})"
+        super().save(*args, **kwargs)
+
     def __str__(self):
-        return f"{self.name} ({self.location})"
+        return f"{self.name}"
 
 
 # Stock model
