@@ -1,6 +1,6 @@
 asgiref==3.8.1
 diff-match-patch==20241021
-Django==5.2.1
+Django==5.2.4
 django-cleanup==9.0.0
 django-crispy-forms==2.4
 django-environ==0.12.0
